@@ -1,0 +1,69 @@
+
+Challenge #1
+-----------------
+A 3 tier environment is a common setup. Use a tool of your choosing/familiarity create these resources. Please remember we will not be judged on the outcome but more focusing on the approach, style and reproducibility.
+
+Answer
+Here we can use Kubernetes for container platform, for hosting it on EC2 we can use terraform as code on Cloud platform.
+
+Challenge #2
+------------
+Summary
+We need to write code that will query the meta data of an instance within aws and provide a json formatted output. The choice of language and implementation is up to you.
+
+Bonus Points
+The code allows for a particular data key to be retrieved individually
+
+Hints
+•	Aws Documentation
+•	Azure Documentation
+•	Google Documentation
+
+Answer
+#!/bin/bash
+
+ssh -i key-file ec2-user@instance-ip
+
+cd /run/cloud/
+cat instance-data.json
+
+done
+
+Challenge #3
+------------
+We have a nested object, we would like a function that you pass in the object and a key and get back the value. How this is implemented is up to you.
+
+Example Inputs
+object = {“a”:{“b”:{“c”:”d”}}}
+key = a/b/c
+
+object = {“x”:{“y”:{“z”:”a”}}}
+key = x/y/z
+value = a
+
+Hints
+We would like to see some tests. A quick read to help you along the way
+We would expect it in any other language apart from elixir.
+Again thank you for spending your precious time on our challenge.
+
+Answer
+# Python3 code to demonstrate working of
+# Extract values of Particular Key in Nested Values
+# Using list comprehension
+
+# initializing dictionary
+test_dict = {'Gfg' : {"a" : 7, "b" : 9, "c" : 12},
+'is' : {"a" : 15, "b" : 19, "c" : 20},
+'best' :{"a" : 5, "b" : 10, "c" : 2}}
+
+# printing original dictionary
+print("The original dictionary is : " + str(test_dict))
+
+# initializing key
+temp = "c"
+
+# using item() to extract key value pair as whole
+res = [val[temp] for key, val in test_dict.items() if temp in val]
+
+# printing result
+print("The extracted values : " + str(res))
